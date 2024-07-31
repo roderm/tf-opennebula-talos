@@ -49,3 +49,9 @@ provider "kubernetes" {
   client_key         = base64decode(local.kubeconfig.users[0].user.client-key-data)
 }
 ```
+
+## Troubleshooting
+### VM does not boot (CPU error)
+As for me `host-passthrough` worked, try `"kvm64"` or `"IvyBridge"`.
+### VM does not have connectivity
+Make sure, the interface in the VM is named `eth0`. This can mostly be achieved by setting the NIC model type to `"virtio".
